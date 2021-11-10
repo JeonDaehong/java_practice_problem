@@ -1,5 +1,10 @@
 package re_solve_the_problem;
 
+import java.util.Arrays;
+import java.util.Random;
+
+// 풀이시간 : 2021-11-10 18:55 ~ 18:59
+
 /*
  * # OMR카드
  * 
@@ -20,9 +25,29 @@ public class ArrayEx08_문제 {
 
 	public static void main(String[] args) {
 		
+		Random ran = new Random();
+		
 		int[] answer = {1, 3, 4, 2, 5};
 		int[] hgd = new int[5];
+		char[] oX = new char[5];
+		
+		int score = 0;
+		
+		for (int i=0; i<hgd.length; i++) {
+			hgd[i] = ran.nextInt(5)+1;
+			if (answer[i] == hgd[i]) {
+				oX[i] = 'O';
+				score+=20;
+			} else {
+				oX[i] = 'X';
+			}
+		}
+		
+		System.out.println("[정답 확인]");
+		System.out.println("answer : " + Arrays.toString(answer));
+		System.out.println("hgd    : " + Arrays.toString(hgd));
+		System.out.println("OX     : " + Arrays.toString(oX));
+		System.out.println("점수   : " + score);
 		
 	}
-	
 }

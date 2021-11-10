@@ -2,6 +2,8 @@ package re_solve_the_problem;
 
 import java.util.Scanner;
 
+// 풀이시간 : 2021-11-10 20:13 ~ 20:19
+
 /*
  * # 숫자이동[1단계]
  * 
@@ -18,15 +20,40 @@ public class ArrayEx14_문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		int[] game = {0, 0, 2, 0, 0, 0, 0};
-		int player = 0;
+		int player = 2;
 		
-		for (int i=0; i<7; i++) {
-			if (game[i] == 2) {
-				player = i;
+		while (true) {
+			for (int i=0; i<game.length; i++) {
+				if 		(game[i] == 0) System.out.print("___");
+				else if (game[i] == 2) System.out.print("옷");
 			}
+			System.out.print("\n좌:1 / 우:2 / 종료:그 외 숫자");
+			int sel = sc.nextInt();
+			
+			if (sel == 1) {
+				if (game[0] == 2) {
+					System.out.println("더 이상 왼쪽으로 못갑니다.\n");
+				} else {
+					game[player-1] = 2;
+					game[player] = 0;
+					player --;
+				}
+			} else if (sel == 2) {
+				if (game[6] == 2) {
+					System.out.println("더 이상 오른쪽으로 못갑니다.\n");
+				} else {
+					game[player+1] = 2;
+					game[player] = 0;
+					player ++;
+				}
+			} else {
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			}
+			
 		}
 				
 	}

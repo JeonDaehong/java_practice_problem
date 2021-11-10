@@ -1,6 +1,9 @@
 package re_solve_the_problem;
 
+import java.util.Arrays;
 import java.util.Random;
+
+//풀이시간 : 2021-11-10 19:30 ~ 19:38
 
 /*
  * # 중복숫자 금지[1단계]
@@ -37,6 +40,23 @@ public class ArrayEx11_문제 {
 		
 		boolean[] isFirst = new boolean[5];
 		int[] arr   = new int[5];
+		
+		int num = 0;
+		int cnt = 0;
+		
+		while (cnt < arr.length) {
+			num = ran.nextInt(5);
+			
+			if (isFirst[num] == false) {
+				isFirst[num] = true;
+				arr[cnt] = num;
+				cnt++;
+			}
+		}
+		
+		System.out.println("[최종 정답 확인]");
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(isFirst));
 					
 	}
 	
