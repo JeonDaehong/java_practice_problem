@@ -6,7 +6,26 @@ public class 최대공약수_문제 {
 
 	public static void main(String[] args) {
 		
-		
+		 int x = 126;	// 숫자 1
+		 int y = 90;	// 숫자 2
+		 
+		 int h = -1;	// 나머지 수
+		 
+		 // 유클리드 호제법 (나머지가 0이 될 때까지)
+		 while(true) {
+			 
+			 h = (x % y);
+			 
+			 if (h == 0) {
+				 break;
+			 } else {
+				 x = y;
+				 y = h;
+			 }
+		 }
+		 
+		 // 최대공약수 결과
+		 System.out.println(y);
 
 	}
 
