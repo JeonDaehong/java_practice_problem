@@ -1,5 +1,11 @@
 package re_solve_the_problem;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+//풀이시간 : 2021-11-15 19:30 ~ 19:38
+
 /*
  * # 1 to 50[1단계] : 1 to 4
  * 
@@ -27,8 +33,58 @@ public class ArrayEx16_문제 {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		Random ran = new Random();
+		
 		int[] arr = new int[4];
 		boolean[] isCheck = new boolean[4];
+		
+		int cnt = 0;
+		
+		for (int i=0; i<arr.length; i++) {
+			cnt = 0;
+			arr[i] = ran.nextInt(4)+1;
+			for (int j=0; j<arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					cnt++;
+				}
+			}
+			if (cnt == 2) {
+				i--;
+			}
+		}
+		
+		int playCnt = 0;
+		int minCnt = 0;
+		
+		while(true) {
+			System.out.println("정보 : " + Arrays.toString(arr));
+			System.out.print("입력 : ");
+			int idx = sc.nextInt();
+			
+			for (int i : arr) {
+				if (i < arr[idx]) {
+					minCnt++;
+				}
+			}
+			
+			if (minCnt == 0) {
+				System.out.println("\n정답\n");
+				arr[idx] = 9;
+				playCnt++;
+			} else {
+				System.out.println("\n오답\n");
+				minCnt = 0;
+			}
+			
+			if (playCnt == 4) {
+				System.out.println("\n승리\n");
+				break;
+			}
+			
+		}
+		
+		sc.close();
 		
 	}
 	

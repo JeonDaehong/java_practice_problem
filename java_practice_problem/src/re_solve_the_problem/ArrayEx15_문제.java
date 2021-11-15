@@ -1,6 +1,9 @@
 package re_solve_the_problem;
 
 import java.util.Random;
+
+//풀이시간 : 2021-11-15 19:21 ~ 19:26
+
 import java.util.Scanner;
 
 /*
@@ -30,7 +33,7 @@ public class ArrayEx15_문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		Random ran = new Random();
 		
 		int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
@@ -38,6 +41,8 @@ public class ArrayEx15_문제 {
 		int temp = 0;
 		int tempRan = 0;
 		int cnt  = 0;
+		
+		int winCnt = 0;
 		
 		// 셔플 구현(Shuffle) : 배열의 요소들을 무작위로 섞음
 		while (cnt < 1000) {			
@@ -48,16 +53,39 @@ public class ArrayEx15_문제 {
 			cnt++;
 		}
 			
-		for (int i=0; i<10; i++) {
-			System.out.print(front[i] + " ");
-		}
-		System.out.println();
-		for (int i=0; i<10; i++) {
-			System.out.print(back[i] + " ");
-		}
-		System.out.println();
+		while(true) {
 			
+			// Front
+			for (int i=0; i<10; i++) {
+				System.out.print(front[i] + " ");
+			}
+			System.out.println();
+			for (int i=0; i<10; i++) {
+				System.out.print(back[i] + " ");
+			}
+			System.out.println();
 			
+			System.out.print("1 : ");
+			int idx1 = sc.nextInt();
+			System.out.print("2 : ");
+			int idx2 = sc.nextInt();
+			
+			if (idx1 != idx2 && front[idx1] == front[idx2] && back[idx1] == 0 && back[idx2] == 0) {
+				back[idx1] = 1;
+				back[idx2] = 1;
+				winCnt++;
+				System.out.println("\n맞추셨습니다.\n");
+			} else {
+				System.out.println("\n다시!.\n");
+			}
+			
+			if (winCnt == 5) {
+				System.out.println("\n게임 승리\n");
+				break;
+			}
+		
+		}
+		
 	}
 	
 }
