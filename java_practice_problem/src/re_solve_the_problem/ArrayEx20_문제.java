@@ -2,6 +2,8 @@ package re_solve_the_problem;
 
 import java.util.Scanner;
 
+//풀이시간 : 분석 완료
+
 /*
  * # 배열 컨트롤러[1단계] : 삭제
  * 
