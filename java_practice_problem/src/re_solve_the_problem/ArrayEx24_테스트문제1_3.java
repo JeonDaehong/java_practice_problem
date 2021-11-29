@@ -3,13 +3,13 @@ package re_solve_the_problem;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//2021-10-05 09:35 ~ 10:19
+//2021-11-29 21:30 ~ 21:43
 
 public class ArrayEx24_테스트문제1_3 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		// 문제 13) 아래 배열 l과 m을 비교해서 둘의 합이 짝수 일때만 n에 저장 	
 		// 예) n = {74,82,0,0,0}
@@ -18,15 +18,17 @@ public class ArrayEx24_테스트문제1_3 {
 		int[] m = { 13, 54, 17, 42, 1 };
 		int[] n = { 0,0,0,0,0};
 		for (int i=0; i<l.length; i++) {
-			if ((l[i] + m[i]) % 2 == 0) {
+			if ((l[i]+m[i]) % 2 == 0) {
 				n[cnt] = l[i] + m[i];
 				cnt++;
 			}
 		}
-		System.out.println(" n : " + Arrays.toString(n));
-		System.out.println();
+		System.out.println("문제13 ) " + Arrays.toString(n));
+		
 				
-				
+		
+		
+		
 		// 문제 14) 아래는 시험결과 이다. 시험에 합격한 사람의 번호만 win에 저장 (60점이상 합격)
 		cnt = 0;
 		int[] num = { 1001, 1002, 1003 };
@@ -39,57 +41,45 @@ public class ArrayEx24_테스트문제1_3 {
 				cnt++;
 			}
 		}
-		System.out.println(" win : " + Arrays.toString(win));
-		System.out.println();
+		System.out.println("문제14 ) " + Arrays.toString(win));
 		
 		
-		// 문제 15) 아래는 시험결과 이다 시험에 합격한 사람의 번호만 win2에 저장 (60점이상 합격)
+		
+		
+		
+		// 문제 15) 아래는 시험결과이다 시험에 합격한 사람의 번호만 win2에 저장 (60점이상 합격)
 		cnt = 0;
 		int[] data = { 1001, 80 , 1002, 23, 1003 , 78 };
 		int[] win2 = { 0,0,0 };
 		// 예) win2[3] = {1001, 1003, 0};
-		for (int i=1; i<data.length; i+=2) {
+		for (int i=1; i<data.length; i++) {
 			if (data[i] >= 60) {
 				win2[cnt] = data[i-1];
 				cnt++;
 			}
+			i++;
 		}
-		System.out.println(" win2 : " + Arrays.toString(win2));
-		System.out.println();
+		System.out.println("문제15 ) " + Arrays.toString(win2));
 		
 	
+		
+		
+		
 		// 문제 16) 아래 배열 o 에서 내가 입력한 값만 빼고p 에 저장 
 		int num2 = 0;
-		int numCnt = -1;
+		int numCnt = 0;
 		int[] o = { 10,20,30,40,50 };
 		int[] p = { 0,0,0,0,0 };
 		// 예) 30 ==> p = {10,20,40,50,0};
-		
-		System.out.println("입력하시오");
-		num2 = scan.nextInt();
-		
+		System.out.print("입력 : ");
+		num2 = sc.nextInt();
 		for (int i=0; i<o.length; i++) {
-			if (o[i] == num2) {
-				numCnt = i;
+			if (o[i] != num2) {
+				p[numCnt] = o[i];
+				numCnt++;
 			}
 		}
-		
-		if (numCnt == -1) {
-			System.out.println("올바른 값을 입력하시오");
-		} else if (numCnt == 0) {
-			for (int i=0; i<o.length-1; i++) {
-				p[i] = o[i+1];
-			}
-		} else {
-			for (int i=0; i<numCnt; i++) {
-				p[i] = o[i];
-			}
-			for (int i=numCnt; i<o.length-1; i++) {
-				p[i] = o[i+1];
-			}
-		}
-		System.out.println(" p : " + Arrays.toString(p));
-		System.out.println();
+		System.out.println("문제16 ) " + Arrays.toString(p));
 		
 		
 		
@@ -97,40 +87,31 @@ public class ArrayEx24_테스트문제1_3 {
 		// 문제 17) 아래 배열 q에서 내가 입력한 번호만 빼고 다른 번호와 값을 r 에 저장 
 		numCnt = -1;
 		cnt = 0;
+		num2 = 0;
+		int num3 = 0;
 		int[] q = { 1001, 40, 1002, 65, 1003,  70 };
 		int[] r = { 0,0,0,0,0,0 };
 		// 예) 1002 ==> r = {1001, 40, 1003, 70 , 0, 0};
-		System.out.println("입력하시오");
-		num2 = scan.nextInt();
-		
+		System.out.print("번호 입력 : ");
+		num2 = sc.nextInt();
+		System.out.print("값 입력 : ");
+		num3 = sc.nextInt();
 		for (int i=0; i<q.length; i++) {
-			if (q[i] == num2 && num2 > 1000) {
-				numCnt = i;
+			if (q[i] != num2 && q[i] != num3) {
+				r[cnt] = q[i];
+				cnt++;
 			}
 		}
+		System.out.println("정답17 )  " + Arrays.toString(r));
 		
-		if (numCnt == -1) {
-			System.out.println("올바른 값을 입력하시오");
-		} else if (numCnt == 0) {
-			for (int i=0; i<q.length-2; i++) {
-				r[i] = q[i+2];
-			}
-		} else {
-			for (int i=0; i<numCnt; i++) {
-				r[i] = q[i];
-			}
-			for (int i=numCnt; i<q.length-2; i++) {
-				r[i] = q[numCnt+2];
-				numCnt++;
-			}
-		}
-		System.out.println(" r : " + Arrays.toString(r));
-		System.out.println();
+		
 		
 		
 		// 문제 18)
 		num2 = 0;
 		cnt = 0;
+		int idx = -1;
+		
 		int[] arr = {10,20,30,40,50};
 		int[] s = new int[5];
 		
@@ -143,24 +124,19 @@ public class ArrayEx24_테스트문제1_3 {
 		
 		// 예)  30, 40, 1, 10, 2
 		// s = { 2, 3, -1, 0, -1}
-		
-		for (int i=0; i<s.length; i++) {
-			System.out.println("입력하시오");
-			num2 = scan.nextInt();
+		for (int i=0; i<arr.length; i++) {
+			System.out.print("번호 " + (i+1) + " 입력 : ");
+			num2 = sc.nextInt();
+			idx = -1;
 			for (int j=0; j<arr.length; j++) {
-				if (num2 == arr[j]) {
-					s[i] = j;
-					cnt = 1;
+				if (num2==arr[j]) {
+					idx = j;
+					break;
 				}
 			}
-			if (cnt == 0) {
-				s[i] = -1;
-			}
-			cnt = 0;
+			s[i] = idx;
 		}
-		
-		System.out.println(" s : " + Arrays.toString(s));
-				
+		System.out.println("정답18 )  " + Arrays.toString(s));
 		
 	}
 
