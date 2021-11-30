@@ -1,5 +1,10 @@
 package re_solve_the_problem;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
+// 2021-11-30 18:43 ~ 18:47
+
 /*
  * 
  * # 최대값 구하기[3단계]
@@ -23,7 +28,30 @@ public class ArrayEx25_문제 {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		
 		int[] arr = {11, 87, 42, 100, 24};
-	
+		
+		int cnt = 0;
+		int max = 0;
+		int idx = -1;
+		while (cnt <= 4) {
+			System.out.println(Arrays.toString(arr));
+			idx = -1;
+			max = 0;
+			for (int i=0; i<arr.length; i++) {
+				if (arr[i] > max) {
+					max = arr[i];
+					idx = i;
+				}
+			}
+			System.out.print("입력 : ");
+			int myNum = sc.nextInt();
+			if (myNum == max) {
+				arr[idx] = 0;
+				cnt++;
+			}
+		}
+		System.out.println("Clear ~ 프로그램을 종료합니다!");
 	}
 }

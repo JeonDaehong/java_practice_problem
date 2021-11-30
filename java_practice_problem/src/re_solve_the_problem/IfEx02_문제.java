@@ -1,5 +1,9 @@
 package re_solve_the_problem;
 
+import java.util.Scanner;
+
+// 2021-11-30 20:53 ~ 20:54
+
 /*
  * # Up & Down 게임[1단계]
  * 
@@ -15,7 +19,16 @@ public class IfEx02_문제 {
 
 	public static void main(String[] args) {
 	
+		Scanner sc = new Scanner(System.in);
+		
 		int com = 8;	
+		
+		System.out.print("입력 : ");
+		int me = sc.nextInt();
+		
+		if (me < com) System.out.println("up!");
+		else if (me == com) System.out.println("Bingo!");
+		else if (me > com) System.out.println("Down!");
 		
 	}
 

@@ -1,5 +1,9 @@
 package re_solve_the_problem;
 
+import java.util.Scanner;
+
+//2021-11-30 20:58 ~ 20:59
+
 /*
  * # 로그인[1단계]
  * 
@@ -14,8 +18,21 @@ public class IfEx04_문제 {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		
 		int dbId = 1234;
 		int dbPw = 1111;
+		
+		System.out.print("ID : ");
+		int myId = sc.nextInt();
+		System.out.print("PW : ");
+		int myPw = sc.nextInt();
+		
+		if (myId == dbId && myPw == dbPw) {
+			System.out.println("로그인 성공");
+		} else {
+			System.out.println("로그인 실패");
+		}
 
 
 	}

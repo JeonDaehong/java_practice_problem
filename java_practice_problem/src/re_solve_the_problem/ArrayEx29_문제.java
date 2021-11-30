@@ -1,5 +1,8 @@
 package re_solve_the_problem;
 
+import java.util.Scanner;
+
+//2021-11-30 20:43 ~ 20:51
 
 /*
  * # 숫자 야구 게임
@@ -24,8 +27,52 @@ public class ArrayEx29_문제 {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		
 		int[] com = {1,7,3};
 		int[] me  = new int[3];
+		
+		int strike = 0;
+		int ball = 0;
+		
+		while (true) {
+			
+			strike = 0;
+			ball = 0;
+			
+			for (int i=0; i<me.length; i++) {
+				System.out.print("숫자 " + (i+1) + " : ");
+				me[i] = sc.nextInt();
+				for (int j=0; j<i; j++) {
+					if (me[j]==me[i]) {
+						System.out.println("중복 x");
+						i--;
+						break;
+					}
+				}
+			}
+			
+			for (int i=0; i<me.length; i++) {
+				if (me[i] == com[i]) {
+					strike ++;
+				} else {
+					for (int j=0; j<com.length; j++) {
+						if (me[i] == com[j]) {
+							ball++;
+						}
+					}
+				}
+			}
+			
+			System.out.println(strike + "s / " + ball + "b 입니다.");
+			
+			if (strike == 3) {
+				System.out.println("승리");
+				break;
+			}
+			
+			
+		}
 		
 		
 	}
