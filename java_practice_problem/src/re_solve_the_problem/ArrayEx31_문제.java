@@ -1,4 +1,9 @@
 package re_solve_the_problem;
+
+import java.util.Arrays;
+
+// 2021-12-07 19:27 ~ 19:32
+
 /*
  * # 정렬하기
  * 
@@ -19,6 +24,23 @@ public class ArrayEx31_문제 {
 	public static void main(String[] args) {
 		
 		int[] scores = {10, 50, 30, 40, 80, 7};
+		
+		System.out.println("최초 : " + Arrays.toString(scores));
+		
+		for (int i=0; i<scores.length; i++) {
+			int max = 0;
+			int maxIdx = -1;
+			for (int j=i; j<scores.length; j++) {
+				if (scores[j] > max) {
+					max = scores[j];
+					maxIdx = j;
+				}
+			}
+			int temp = scores[i];
+			scores[i] = scores[maxIdx];
+			scores[maxIdx] = temp;
+			System.out.println("결과 : " + Arrays.toString(scores));
+		}
 
 	}
 

@@ -2,6 +2,7 @@ package re_solve_the_problem;
 
 import java.util.Scanner;
 
+
 /*
  * 
  * # 나만의 마블
@@ -58,6 +59,7 @@ public class ArrayEx42_문제 {
 			
 			// 칸은 15칸 까지밖에 없기에 player가 16이 되면, 다시 0으로 돌아가야함.
 			player %= 16;
+			
 			
 		}
 
