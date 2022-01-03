@@ -2,6 +2,8 @@ package re_solve_the_problem;
 
 import java.util.Scanner;
 
+// 다시 공부 해보았음
+
 /*
  * 
  * # 배열 컨트롤러[2단계] : 벡터(Vector)
